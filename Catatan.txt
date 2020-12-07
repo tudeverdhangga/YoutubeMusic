@@ -1,0 +1,9 @@
+Youtube Music
+
+Minggu 1 :
+- Buat prototype pake figma
+- login (Eky)
+- register (Iim)
+- dashboard (Eky)
+- search list (Iim)
+- nampil lagunya (Tude)

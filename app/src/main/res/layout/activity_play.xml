@@ -24,6 +24,7 @@
         android:background="@drawable/card"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -37,5 +38,165 @@
         app:layout_constraintTop_toTopOf="@+id/card"
         app:layout_constraintVertical_bias="0.132"
         app:srcCompat="@drawable/video" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:src="@drawable/next_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.357"
+        app:layout_constraintStart_toEndOf="@+id/imageButton7"
+        app:layout_constraintTop_toTopOf="@+id/imageButton7" />
+
+    <ImageButton
+        android:id="@+id/imageButton5"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:background="@null"
+        android:rotationY="180"
+        android:scaleType="centerInside"
+        android:src="@drawable/next_btn"
+        app:layout_constraintBottom_toBottomOf="@+id/imageButton7"
+        app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+        app:layout_constraintHorizontal_bias="0.646"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageButton7" />
+
+    <ImageButton
+        android:id="@+id/imageButton7"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:background="@null"
+        android:scaleType="fitCenter"
+        android:src="@drawable/pause_btn"
+        android:tint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.321" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="310dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="24dp"
+        android:progressTint="@color/timeline"
+        android:thumbTint="@color/timeline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/card"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <SeekBar
+        android:id="@+id/seekBar2"
+        android:layout_width="310dp"
+        android:layout_height="16dp"
+        android:progressTint="@color/black"
+        android:thumbTint="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton7" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:gravity="center|start"
+        android:text="0:00"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11sp"
+        android:flow_horizontalAlign="center"
+        android:flow_verticalAlign="center"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView4"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="25dp"
+        android:layout_height="20dp"
+        android:foregroundGravity="center_vertical|center|center_horizontal"
+        android:gravity="center|end"
+        android:text="3:55"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="11sp"
+        android:flow_horizontalAlign="center"
+        android:flow_verticalAlign="center"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="@+id/imageView4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/seekBar"
+        app:layout_constraintTop_toTopOf="@+id/seekBar"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Falling"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Harry Styles"
+        android:textColor="@color/timeline"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/volume_up_ic"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar2"
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/seekBar2"
+        app:layout_constraintTop_toTopOf="@+id/seekBar2"
+        app:tint="@color/black" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/volume_down_ic"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar2"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar2"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/seekBar2"
+        app:tint="@color/black" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="18dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/back_ic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cover_img" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

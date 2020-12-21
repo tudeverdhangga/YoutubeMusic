@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">YoutubeMusic</string>
+    <string name="login_tv">LOGIN</string>
 </resources>

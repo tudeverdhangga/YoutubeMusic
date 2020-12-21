@@ -8,4 +8,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="timeline">#7B9AFE</color>
+    <color name="input_text">#C4C4C4</color>
 </resources>

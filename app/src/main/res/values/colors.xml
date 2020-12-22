@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="timeline">#7B9AFE</color>
     <color name="input_text">#C4C4C4</color>
+    <color name="input_text_transp">#9EC4C4C4</color>
+    <color name="blacky">#5B5B5B</color>
 </resources>

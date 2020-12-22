@@ -7,4 +7,5 @@
     <string name="confirm_password_label_et">Confirm Password</string>
     <string name="register_title_label">REGISTER</string>
     <string name="register_label_btn">register</string>
+    <string name="splitter">-</string>
 </resources>

@@ -7,5 +7,6 @@
     <string name="confirm_password_label_et">Confirm Password</string>
     <string name="register_title_label">REGISTER</string>
     <string name="register_label_btn">register</string>
+    <string name="splitter">-</string>
     <string name="youtube_api">AIzaSyAV_Z7ereA70XpgzN27DqZrVu_cSyznYXA</string>
 </resources>

@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">YoutubeMusic</string>
     <string name="login_tv">LOGIN</string>
+    <string name="username_label_et">Username</string>
+    <string name="e_mail_label_et">E-mail</string>
+    <string name="password_label_et">Password</string>
+    <string name="confirm_password_label_et">Confirm Password</string>
+    <string name="register_title_label">REGISTER</string>
+    <string name="register_label_btn">register</string>
 </resources>

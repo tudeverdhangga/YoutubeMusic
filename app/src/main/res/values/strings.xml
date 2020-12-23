@@ -7,4 +7,6 @@
     <string name="confirm_password_label_et">Confirm Password</string>
     <string name="register_title_label">REGISTER</string>
     <string name="register_label_btn">register</string>
+    <string name="login_btn">Login</string>
+    <string name="app_name_2">SOUNDRENALINE</string>
 </resources>

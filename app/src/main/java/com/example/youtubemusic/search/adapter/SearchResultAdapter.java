@@ -30,7 +30,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.binding.setSearchResult(searchResults.get(position));
+//        holder.binding.setSearchResult(searchResults.get(position));
         holder.binding.cardSearchResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

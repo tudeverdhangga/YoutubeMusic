@@ -33,7 +33,7 @@
                 android:layout_height="0dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
-                android:background="null"
+                android:background="@null"
                 android:tint="@color/blacky"
                 app:layout_constraintBottom_toBottomOf="@id/ivSearchBox"
                 app:layout_constraintStart_toStartOf="@id/ivSearchBox"

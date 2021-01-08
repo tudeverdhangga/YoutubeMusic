@@ -7,35 +7,6 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:759302057052:android:7e6d781664f085a97b4a99",
-        "android_client_info": {
-          "package_name": "com.android.application"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "759302057052-540a0t7ila5bvsm55h346043nr4ldohd.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAsWS59uYcYdXkMIUGvfdbzIjpRU0CfG2k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "759302057052-540a0t7ila5bvsm55h346043nr4ldohd.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
         "mobilesdk_app_id": "1:759302057052:android:3b8e52dbab58f40f7b4a99",
         "android_client_info": {
           "package_name": "com.example.youtubemusic"

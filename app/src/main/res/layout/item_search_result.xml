@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="searchResult"
-            type="String" />
+            name="result"
+            type="com.example.youtubemusic.model.Items" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cardSearchResult"
@@ -12,7 +12,8 @@
         android:layout_width="match_parent"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="16dp"
-        android:background="@color/white">
+        android:background="@color/white"
+        android:contentDescription="@{result.id.videoId}">
         <ImageView
             android:id="@+id/ivAlbum"
             android:layout_width="90dp"
@@ -21,7 +22,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:src="@drawable/video"
-            android:contentDescription="mm"/>
+            android:contentDescription="@{result.snippet.title}"/>
 
         <TextView
             android:id="@+id/tvSongName"
@@ -31,8 +32,11 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:textStyle="bold"
+            android:textColor="@color/blacky"
+            android:text="@{result.snippet.title}"
             app:layout_constraintStart_toEndOf="@id/ivAlbum"
             app:layout_constraintTop_toTopOf="parent" />
+
         <LinearLayout
             android:id="@+id/songInformation"
             android:layout_width="0dp"
@@ -47,28 +51,35 @@
                 android:id="@+id/tvArtistName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"/>
+                android:layout_marginHorizontal="4dp"
+                android:textColor="@color/blacky"
+                android:text="@{result.snippet.channelTitle}"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/splitter"
+                android:textColor="@color/blacky"
                 android:layout_marginHorizontal="4dp"
                 />
             <TextView
                 android:id="@+id/tvAlbumName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="4dp"/>
+                android:layout_marginHorizontal="4dp"
+                android:textColor="@color/blacky"
+                android:text="@{result.snippet.publishedAt}"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/splitter"
+                android:textColor="@color/blacky"
                 android:layout_marginHorizontal="4dp"
                 />
             <TextView
                 android:id="@+id/tvSongDuration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/blacky"
                 android:layout_marginHorizontal="4dp"/>
         </LinearLayout>
 

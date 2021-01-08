@@ -14,4 +14,12 @@ public interface API {
                                      @Query("order") String order,
                                      @Query("maxResults") String maxResults,
                                      @Query("type") String type);
+
+    @GET("search")
+    Call<VideoModel> getSearchQuery(@Query("key") String key,
+                                     @Query("part") String part,
+                                     @Query("order") String order,
+                                     @Query("maxResults") String maxResults,
+                                     @Query("q") String q);
+
 }

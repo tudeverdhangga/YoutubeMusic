@@ -15,7 +15,7 @@ public class SingletonRetrofitObject {
                 .build();
     }
 
-    public synchronized SingletonRetrofitObject getmInstance() {
+    public static synchronized SingletonRetrofitObject getmInstance() {
         if (mInstance == null) {
             mInstance = new SingletonRetrofitObject();
         }

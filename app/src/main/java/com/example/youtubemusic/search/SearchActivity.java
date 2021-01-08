@@ -1,5 +1,6 @@
 package com.example.youtubemusic.search;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -9,7 +10,9 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.youtubemusic.R;
 import com.example.youtubemusic.databinding.ActivitySearchBinding;
+import com.example.youtubemusic.login.LoginActivity;
 import com.example.youtubemusic.search.adapter.SearchResultAdapter;
 import com.example.youtubemusic.util.UtilProvider;
 
@@ -25,14 +28,26 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         binding = ActivitySearchBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        presenter = new SearchPresenter(this, new SearchInteractor(UtilProvider.getSharedPreferencesUtil()));
+        presenter = new SearchPresenter(this, UtilProvider.getSharedPreferencesUtil());
 
         initView();
+    }
+
+    public void redirectLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finishAffinity();
     }
 
     private void initView() {
         binding.rvResultSearch.setLayoutManager(new LinearLayoutManager(this));
         binding.btnSearch.setOnClickListener(this);
+        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.logout();
+            }
+        });
         binding.etSearchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

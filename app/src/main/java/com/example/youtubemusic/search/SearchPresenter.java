@@ -1,7 +1,9 @@
 package com.example.youtubemusic.search;
 
+import android.util.Log;
+
 import com.example.youtubemusic.API.SingletonRetrofitObject;
-import com.example.youtubemusic.R;
+import com.example.youtubemusic.constant.ApiConstant;
 import com.example.youtubemusic.model.VideoModel;
 import com.example.youtubemusic.util.SharedPreferencesUtil;
 import com.google.firebase.auth.FirebaseAuth;
@@ -9,10 +11,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.GET;
-import retrofit2.http.Query;
-
-import static android.provider.Settings.System.getString;
 
 public class SearchPresenter implements SearchContract.Presenter{
     private SharedPreferencesUtil sharedPreferencesUtil;
@@ -33,6 +31,25 @@ public class SearchPresenter implements SearchContract.Presenter{
 
     @Override
     public void requestSearch(String q) {
+        Call<VideoModel> searchResultCall = SingletonRetrofitObject.getmInstance().getApi()
+                .getSearchQuery(
+                        ApiConstant.YOUTUBE_URL,
+                        "snippet",
+                        "rating",
+                        "25",
+                        q
+                );
+        searchResultCall.enqueue(new Callback<VideoModel>() {
+            @Override
+            public void onResponse(Call<VideoModel> call, Response<VideoModel> response) {
+                view.showSearchResultSuccess(response.body().getItems());
+                Log.d("RESPONSE", "onResponse: " + response.message());
+            }
 
+            @Override
+            public void onFailure(Call<VideoModel> call, Throwable t) {
+                view.showSearchResultFailed(t.getMessage());
+            }
+        });
     }
 }

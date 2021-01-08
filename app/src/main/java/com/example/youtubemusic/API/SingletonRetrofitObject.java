@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class SingletonRetrofitObject {
     private static SingletonRetrofitObject mInstance;
-    private static final String BASE_URL = "https://www.googleapis.com/youtube/v3";
+    private static final String BASE_URL = "https://www.googleapis.com/youtube/v3/";
     private static Retrofit retrofit;
 
     public SingletonRetrofitObject() {

@@ -1,11 +1,11 @@
 package com.example.youtubemusic.search;
 
 
-import java.util.List;
+import com.example.youtubemusic.model.Items;
 
 public interface SearchContract {
     interface View {
-        void showSearchResultSuccess(List<SearchResult> listSearchResult);
+        void showSearchResultSuccess(Items[] listSearchResult);
         void showSearchResultFailed(String message);
         void redirectLogin();
     }
@@ -15,7 +15,4 @@ public interface SearchContract {
         void logout();
     }
 
-    interface Interactor {
-//        void requestSearch(String q, RequestCallback<SearchResultResponse> requestCallback);
-    }
 }

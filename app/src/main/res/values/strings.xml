@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">YoutubeMusic</string>
     <string name="login_tv">LOGIN</string>
+    <string name="username_label_et">Username</string>
+    <string name="e_mail_label_et">E-mail</string>
+    <string name="password_label_et">Password</string>
+    <string name="confirm_password_label_et">Confirm Password</string>
+    <string name="register_title_label">REGISTER</string>
+    <string name="register_label_btn">register</string>
+    <string name="login_btn">Login</string>
+    <string name="app_name_2">SOUNDRENALINE</string>
+    <string name="splitter">-</string>
     <string name="youtube_api">AIzaSyAV_Z7ereA70XpgzN27DqZrVu_cSyznYXA</string>
+    <string name="ymusic_channelid">UC-9-kyTW8ZkZNDHQJ6FgpwQ</string>
 </resources>

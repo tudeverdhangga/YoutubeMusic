@@ -14,11 +14,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.YoutubeMusic">
-        <activity android:name=".login.LoginActivity"/>
-<!--        <activity android:name=".register.RegisterActivity" />-->
+        <!--    <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".register.RegisterActivity" />
         <activity android:name=".search.SearchActivity" />
          <activity android:name=".play.PlayActivity"></activity>
         <activity android:name=".register.RegisterActivity">
+        </activity>-->
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

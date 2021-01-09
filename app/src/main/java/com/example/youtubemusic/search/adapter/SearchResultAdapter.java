@@ -8,16 +8,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubemusic.databinding.ItemSearchResultBinding;
-import com.example.youtubemusic.search.SearchResult;
-
-import java.util.List;
+import com.example.youtubemusic.model.Items;
+import com.squareup.picasso.Picasso;
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder>{
-    private List<SearchResult> searchResults;
+    private Items[] searchResults;
     private LayoutInflater layoutInflater;
     private ItemClickListener listener;
 
-    public SearchResultAdapter(List<SearchResult> searchResults, LayoutInflater layoutInflater) {
+    public SearchResultAdapter(Items[] searchResults, LayoutInflater layoutInflater) {
         this.searchResults = searchResults;
         this.layoutInflater = layoutInflater;
     }
@@ -30,18 +29,22 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-//        holder.binding.setSearchResult(searchResults.get(position));
+        holder.binding.tvSongName.setText(searchResults[position].getSnippet().getTitle());
+        holder.binding.tvArtistName.setText(searchResults[position].getSnippet().getChannelTitle());
+        holder.binding.tvAlbumName.setText(searchResults[position].getSnippet().getPublishedAt());
+        Picasso.get().load(searchResults[position].getSnippet().getThumbnails().getMedium().getUrl()).into(holder.binding.ivAlbum);
         holder.binding.cardSearchResult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(searchResults.get(position));
+                System.out.println(searchResults[position].getSnippet().getTitle());
+                listener.onItemClick(searchResults[position]);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return searchResults != null? searchResults.length : 0;
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
@@ -50,6 +53,7 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         public ViewHolder(ItemSearchResultBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
+            System.out.println(binding.tvSongName.getText());
         }
     }
 
@@ -58,6 +62,6 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     }
 
     public interface ItemClickListener {
-        void onItemClick(SearchResult searchResult);
+        void onItemClick(Items searchResult);
     }
 }

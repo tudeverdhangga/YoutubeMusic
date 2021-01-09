@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.youtubemusic.R;
 import com.example.youtubemusic.databinding.ActivityRegisterBinding;
 import com.example.youtubemusic.play.PlayActivity;
+import com.example.youtubemusic.search.SearchActivity;
 import com.example.youtubemusic.util.UtilProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -21,16 +25,14 @@ import com.google.firebase.auth.FirebaseUser;
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.View, View.OnClickListener {
     private RegisterContract.Presenter presenter;
     private ActivityRegisterBinding binding;
-    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        mAuth = FirebaseAuth.getInstance();
 
-        presenter = new RegisterPresenter(this, new RegisterInteractor(UtilProvider.getSharedPreferencesUtil()));
+        presenter = new RegisterPresenter(this, UtilProvider.getSharedPreferencesUtil());
 
         initView();
     }
@@ -38,29 +40,30 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     @Override
     protected void onStart() {
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if(currentUser != null) {
-            Intent homeActivity = new Intent(this, PlayActivity.class);
-            homeActivity.putExtra("USER", currentUser);
-            startActivity(homeActivity);
+        if(presenter.hasUser()) {
+            redirectToHome();
         }
-        //updateUI(currentUser);
     }
-
-
 
     private void initView() {
         binding.btRegister.setOnClickListener(this);
     }
 
+    private void redirectToHome() {
+        Intent intent = new Intent(this, SearchActivity.class);
+        startActivity(intent);
+        finishAffinity();
+    }
+
     @Override
     public void registerSuccess(String message) {
-
+        makeToast(message);
+        redirectToHome();
     }
 
     @Override
     public void registerFailed(String message) {
-
+        makeToast(message);
     }
 
     @Override
@@ -70,31 +73,14 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void onSubmit() {
+        String username = binding.etUsername.getText().toString();
         String email = binding.etEmail.getText().toString();
         String password = binding.etPassword.getText().toString();
         String confirmPassword = binding.etConfirmationPassword.getText().toString();
+        presenter.register(username, email, password, confirmPassword);
+    }
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d("SUCCESS", "createUserWithEmail:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(RegisterActivity.this, PlayActivity.class);
-                            startActivity(intent);
-                            finish();
-                            //updateUI(user);
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("FAILED", "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
-                            //updateUI(null);
-                        }
-
-                        // ...
-                    }
-                });
+    private void makeToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 }

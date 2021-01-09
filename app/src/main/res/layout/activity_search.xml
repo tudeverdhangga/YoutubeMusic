@@ -35,24 +35,26 @@
                 android:layout_marginLeft="8dp"
                 android:background="@null"
                 android:tint="@color/blacky"
+                android:src="@drawable/ic_baseline_search_24"
                 app:layout_constraintBottom_toBottomOf="@id/ivSearchBox"
                 app:layout_constraintStart_toStartOf="@id/ivSearchBox"
                 app:layout_constraintTop_toTopOf="@id/ivSearchBox"
-                tools:src="@android:drawable/ic_menu_search" />
+                />
 
             <EditText
                 android:id="@+id/etSearchBox"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:hint="pencarian"
-                android:textColor="@color/blacky"
-                android:textColorHint="@color/blacky"
                 android:layout_marginHorizontal="8dp"
                 android:background="@null"
-                app:layout_constraintTop_toTopOf="@id/ivSearchBox"
+                android:hint="pencarian"
+                android:inputType="textShortMessage|text"
+                android:textColor="@color/blacky"
+                android:textColorHint="@color/blacky"
                 app:layout_constraintBottom_toBottomOf="@id/ivSearchBox"
+                app:layout_constraintEnd_toEndOf="@id/ivSearchBox"
                 app:layout_constraintStart_toEndOf="@id/btnSearch"
-                app:layout_constraintEnd_toEndOf="@id/ivSearchBox"/>
+                app:layout_constraintTop_toTopOf="@id/ivSearchBox" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
@@ -78,5 +80,14 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/scrollView"
             />
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGOUT"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvErrorMessage"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

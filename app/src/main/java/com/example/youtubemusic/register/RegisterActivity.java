@@ -2,25 +2,14 @@ package com.example.youtubemusic.register;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.youtubemusic.R;
+import com.example.youtubemusic.dashboard.DashboardActivity;
 import com.example.youtubemusic.databinding.ActivityRegisterBinding;
-import com.example.youtubemusic.play.PlayActivity;
-import com.example.youtubemusic.search.SearchActivity;
 import com.example.youtubemusic.util.UtilProvider;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class RegisterActivity extends AppCompatActivity implements RegisterContract.View, View.OnClickListener {
     private RegisterContract.Presenter presenter;
@@ -50,7 +39,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterContr
     }
 
     private void redirectToHome() {
-        Intent intent = new Intent(this, SearchActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
         finishAffinity();
     }

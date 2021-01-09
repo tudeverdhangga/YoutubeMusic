@@ -1,4 +1,4 @@
-package com.example.youtubemusic;
+package com.example.youtubemusic.dashboard;
 
 import android.view.View;
 import android.widget.ImageView;
@@ -9,12 +9,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.youtubemusic.R;
 
-public class MyViewHolder extends RecyclerView.ViewHolder{
+public class DashboardHolder extends RecyclerView.ViewHolder{
     public ImageView imageView;
     public TextView textView11, textView12;
 
 
-    public MyViewHolder(@NonNull View itemView) {
+    public DashboardHolder(@NonNull View itemView) {
         super(itemView);
 
         imageView = itemView.findViewById(R.id.imageView5);

@@ -1,28 +1,48 @@
-package com.example.youtubemusic;
+package com.example.youtubemusic.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.example.youtubemusic.API.SingletonRetrofitObject;
+import com.example.youtubemusic.R;
+import com.example.youtubemusic.dashboard.adapter.MyAdapter;
+import com.example.youtubemusic.databinding.ActivitySearchBinding;
+import com.example.youtubemusic.login.LoginActivity;
 import com.example.youtubemusic.model.Items;
 import com.example.youtubemusic.model.VideoModel;
+import com.example.youtubemusic.search.SearchContract;
+import com.example.youtubemusic.util.UtilProvider;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MainActivity extends AppCompatActivity {
-    RecyclerView recyclerView;
+public class DashboardActivity extends AppCompatActivity implements DashboardContract.View {
+    private RecyclerView recyclerView;
+    private ImageView imageView;
+    private DashboardContract.Presenter presenter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        presenter = new DashboardPresenter(this, UtilProvider.getSharedPreferencesUtil());
+
         recyclerView = findViewById(R.id.recycler1);
+        imageView = findViewById(R.id.imageView7);
+
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.logout();
+            }
+        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.hasFixedSize();
@@ -36,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 "UCTFFPzHv1VZiVww1siqJi9Q",
                 "snippet",
                 "date",
-                "50",
+                "100",
                 "video"
         );
 
@@ -58,4 +78,11 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setAdapter(myAdapter);
         recyclerView.setVisibility(View.VISIBLE);
     }
+
+    public void redirectLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finishAffinity();
+    }
+
 }

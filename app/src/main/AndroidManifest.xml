@@ -26,6 +26,7 @@
         <activity android:name=".search.SearchActivity" />
         <activity android:name=".play.PlayActivity"/>
         <activity android:name=".register.RegisterActivity"/>
+        <activity android:name=".dashboard.DashboardActivity"/>
     </application>
 
 </manifest>

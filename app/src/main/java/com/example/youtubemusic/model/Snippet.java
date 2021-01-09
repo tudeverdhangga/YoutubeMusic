@@ -8,7 +8,6 @@ public class Snippet {
     private Thumbnails thumbnails;
     private String channelId;
     private String channelTitle;
-    private String liveBroadcastContent;
 
     public String getPublishTime ()
     {
@@ -80,14 +79,6 @@ public class Snippet {
         this.channelTitle = channelTitle;
     }
 
-    public String getLiveBroadcastContent ()
-    {
-        return liveBroadcastContent;
-    }
 
-    public void setLiveBroadcastContent (String liveBroadcastContent)
-    {
-        this.liveBroadcastContent = liveBroadcastContent;
-    }
 
 }

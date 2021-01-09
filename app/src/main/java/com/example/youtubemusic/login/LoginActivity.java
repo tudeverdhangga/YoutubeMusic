@@ -7,11 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.youtubemusic.R;
+import com.example.youtubemusic.dashboard.DashboardActivity;
 import com.example.youtubemusic.databinding.ActivityLoginBinding;
-import com.example.youtubemusic.play.PlayActivity;
 import com.example.youtubemusic.register.RegisterActivity;
-import com.example.youtubemusic.search.SearchActivity;
 import com.example.youtubemusic.util.UtilProvider;
 
 public class LoginActivity extends AppCompatActivity implements LoginContract.View {
@@ -69,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     @Override
     public void redirectToHome() {
-        Intent intent = new Intent(this, SearchActivity.class);
+        Intent intent = new Intent(this, DashboardActivity.class);
         startActivity(intent);
         finishAffinity();
     }

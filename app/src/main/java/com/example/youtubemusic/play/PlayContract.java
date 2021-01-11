@@ -1,6 +1,6 @@
 package com.example.youtubemusic.play;
 
-public class PlayContract {
+public interface PlayContract {
     interface View {
     }
 

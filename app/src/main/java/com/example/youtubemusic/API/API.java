@@ -22,4 +22,9 @@ public interface API {
                                      @Query("maxResults") String maxResults,
                                      @Query("q") String q);
 
+    @GET("search")
+    Call<VideoModel> getVideoQuery(@Query("key") String key,
+                                   @Query("part") String part,
+                                   @Query("id") String id);
+
 }

@@ -14,6 +14,8 @@ import com.example.youtubemusic.model.Items;
 import com.squareup.picasso.Picasso;
 
 public class MyAdapter extends RecyclerView.Adapter<DashboardHolder> {
+    public OnClickListener mOnClickListener;
+
     public MyAdapter(Context context, Items[] items) {
         this.context = context;
         this.items = items;
@@ -27,7 +29,7 @@ public class MyAdapter extends RecyclerView.Adapter<DashboardHolder> {
     public DashboardHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.music_card, parent, false);
 
-        return new DashboardHolder(itemView);
+        return new DashboardHolder(itemView, mOnClickListener, items);
     }
 
     @Override
@@ -39,7 +41,14 @@ public class MyAdapter extends RecyclerView.Adapter<DashboardHolder> {
 
     @Override
     public int getItemCount() {
-
         return items.length;
+    }
+
+    public void setOnClickListener (OnClickListener mOnClickListener) {
+        this.mOnClickListener = mOnClickListener;
+    }
+
+    public interface OnClickListener {
+        void onItemClick(String id);
     }
 }

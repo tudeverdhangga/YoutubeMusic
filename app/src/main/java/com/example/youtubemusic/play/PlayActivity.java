@@ -65,7 +65,6 @@ public class PlayActivity extends YouTubeBaseActivity implements PlayContract.Vi
                 setYoutubePlayer(youTubePlayer);
                 if (!b){
                     youTubePlayer.loadVideo(id);
-                    youTubePlayerView.initialize(getString(R.string.youtube_api), mOnInitializedListener);
                 }
             }
 
@@ -80,7 +79,7 @@ public class PlayActivity extends YouTubeBaseActivity implements PlayContract.Vi
             public void onClick(View view) {
                 pause_btn.setVisibility(View.VISIBLE);
                 play_btn.setVisibility(View.INVISIBLE);
-                youTubePlayer.play();
+                youTubePlayerView.initialize(getString(R.string.youtube_api), mOnInitializedListener);
             }
         });
 

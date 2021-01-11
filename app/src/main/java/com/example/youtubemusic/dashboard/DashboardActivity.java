@@ -60,7 +60,7 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
                 "UCTFFPzHv1VZiVww1siqJi9Q",
                 "snippet",
                 "date",
-                "100",
+                "20",
                 "video"
         );
 

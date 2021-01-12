@@ -101,7 +101,7 @@ public class PlayActivity extends YouTubeBaseActivity implements PlayContract.Vi
                 if (!youTubePlayer.hasPrevious())
                     Toast.makeText(PlayActivity.this, "End of playlist", Toast.LENGTH_SHORT).show();
                 else {
-                    index--;
+                    index = index - 1;
                     setInformation();
                     youTubePlayer.previous();
                 }
@@ -114,7 +114,7 @@ public class PlayActivity extends YouTubeBaseActivity implements PlayContract.Vi
                 if (!youTubePlayer.hasNext())
                     Toast.makeText(PlayActivity.this, "End of playlist", Toast.LENGTH_SHORT).show();
                 else {
-                    index++;
+                    index = index + 1;
                     setInformation();
                     youTubePlayer.next();
                 }
@@ -126,10 +126,10 @@ public class PlayActivity extends YouTubeBaseActivity implements PlayContract.Vi
     protected void onPause() {
         super.onPause();
         idPlaylist.clear();
-        index = 0;
     }
 
     private void setInformation() {
+        Log.d("INDEX_PLS", "onClick: " + index);
         title_tv.setText(items[index].getSnippet().getTitle());
         singer_tv.setText(items[index].getSnippet().getChannelTitle());
         new DownloadImageTask(cover_iv).execute(items[index].getSnippet().getThumbnails().getHigh().getUrl());

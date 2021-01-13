@@ -18,6 +18,7 @@ import com.example.youtubemusic.login.LoginActivity;
 import com.example.youtubemusic.model.Items;
 import com.example.youtubemusic.model.VideoModel;
 import com.example.youtubemusic.play.PlayActivity;
+import com.example.youtubemusic.search.SearchActivity;
 import com.example.youtubemusic.search.SearchContract;
 import com.example.youtubemusic.util.UtilProvider;
 
@@ -28,6 +29,7 @@ import retrofit2.Response;
 public class DashboardActivity extends AppCompatActivity implements DashboardContract.View, MyAdapter.OnClickListener {
     private RecyclerView recyclerView;
     private ImageView imageView;
+    private ImageView ivSearch;
     private DashboardContract.Presenter presenter;
     private Items[] items;
 
@@ -40,11 +42,19 @@ public class DashboardActivity extends AppCompatActivity implements DashboardCon
 
         recyclerView = findViewById(R.id.recycler1);
         imageView = findViewById(R.id.imageView7);
-
+        ivSearch = findViewById(R.id.imageView6);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 presenter.logout();
+            }
+        });
+
+        ivSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (DashboardActivity.this, SearchActivity.class);
+                startActivity(intent);
             }
         });
 

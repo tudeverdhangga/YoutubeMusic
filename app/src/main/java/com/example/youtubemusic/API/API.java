@@ -16,12 +16,13 @@ public interface API {
                                      @Query("type") String type);
 
     @GET("search")
-    Call<VideoModel> getSearchQuery(@Query("key") String key,
-                                     @Query("part") String part,
-                                     @Query("order") String order,
-                                     @Query("maxResults") String maxResults,
-                                     @Query("q") String q);
-
+    Call<VideoModel> getSearchMusicQuery(@Query("key") String key,
+                                         @Query("part") String part,
+                                         @Query("type") String type,
+                                         @Query("order") String order,
+                                         @Query("maxResults") String maxResults,
+                                         @Query("q") String q,
+                                         @Query("channelId") String channelId);
     @GET("search")
     Call<VideoModel> getVideoQuery(@Query("key") String key,
                                    @Query("part") String part,

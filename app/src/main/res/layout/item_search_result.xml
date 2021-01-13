@@ -33,7 +33,6 @@
             android:layout_marginTop="24dp"
             android:textStyle="bold"
             android:textColor="@color/blacky"
-            android:text="@{result.snippet.title}"
             app:layout_constraintStart_toEndOf="@id/ivAlbum"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,8 +51,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
-                android:textColor="@color/blacky"
-                android:text="@{result.snippet.channelTitle}"/>
+                android:textColor="@color/blacky" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,8 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
-                android:textColor="@color/blacky"
-                android:text="@{result.snippet.publishedAt}"/>
+                android:textColor="@color/blacky"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

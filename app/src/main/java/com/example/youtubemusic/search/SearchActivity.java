@@ -42,12 +42,7 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
     private void initView() {
         binding.rvResultSearch.setLayoutManager(new LinearLayoutManager(this));
         binding.btnSearch.setOnClickListener(this);
-        binding.btnLogout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                presenter.logout();
-            }
-        });
+
 //        binding.etSearchBox.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 //            @Override
 //            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -67,7 +62,7 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         ((SearchResultAdapter) binding.rvResultSearch.getAdapter()).setOnItemClickListener(new SearchResultAdapter.ItemClickListener() {
             @Override
             public void onItemClick(Items searchResult) {
-                //redirectPlay(searchResult.getId().getVideoId());
+                redirectPlay(searchResult.getId().getVideoId());
             }
         });
     }
@@ -92,9 +87,9 @@ public class SearchActivity extends AppCompatActivity implements SearchContract.
         presenter.requestSearch(q);
     }
 
-    private void redirectPlay(String url) {
+    private void redirectPlay(String id) {
         Intent intent = new Intent(this, PlayActivity.class);
-        intent.putExtra("URL", url);
+        intent.putExtra("VIDEO_ID", id);
         startActivity(intent);
     }
 }

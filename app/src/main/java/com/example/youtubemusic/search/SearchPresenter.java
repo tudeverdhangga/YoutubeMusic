@@ -32,12 +32,14 @@ public class SearchPresenter implements SearchContract.Presenter{
     @Override
     public void requestSearch(String q) {
         Call<VideoModel> searchResultCall = SingletonRetrofitObject.getmInstance().getApi()
-                .getSearchQuery(
+                .getSearchMusicQuery(
                         ApiConstant.YOUTUBE_URL,
                         "snippet",
+                        "video",
                         "rating",
-                        "25",
-                        q
+                        "10",
+                        q,
+                        "UCTFFPzHv1VZiVww1siqJi9Q"
                 );
         searchResultCall.enqueue(new Callback<VideoModel>() {
             @Override
